@@ -16,6 +16,8 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { GiocaComponent } from './components/gioca/gioca.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { FooterComponent } from './footer/footer.component'; 
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { GiocaComponent } from './components/gioca/gioca.component';
     LogoutComponent,
     NavbarComponent,
     WelcomeComponent,
+    HeroComponent,
     ProfileComponent,
+    RankingsComponent,
+    FooterComponent,
     RankingsComponent,
     GiocaComponent
   ],
