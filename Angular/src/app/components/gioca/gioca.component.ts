@@ -19,11 +19,11 @@ export class GiocaComponent implements OnInit {
 
   getMovies() {
     this.dbmoviesService.getFilms().subscribe({
-      next: (movies: Movie[]) => {
-        this.movies = movies;
+      next: (response: any) => {
+        this.movies = response.results;
         console.log('Dati recuperati dall\'API:', this.movies);
       },
-      error: (error : any) => {
+      error: (error: any) => {
         console.error('Si è verificato un errore nel recupero dei film:', error);
       }
     });
