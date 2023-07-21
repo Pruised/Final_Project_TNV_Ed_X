@@ -1,17 +1,18 @@
 export interface User {
-  name: string;
-  surname: string;
+  userId: number;
   username: string;
+  password: string;
+  email: string;
 }
 
-export interface LoginDTO {
+  export interface LoginDTO {   
   username: string;
   password: string;
 }
 
 export interface RegisterDTO {
-  name: string;
-  surname: string;
+  userId: number;
   username: string;
   password: string;
+  email: string;
 }

@@ -1,11 +1,41 @@
-<div *ngIf="movies && movies.length > 0">
-  <h2>Film disponibili:</h2>
-  <ul>
-    <li *ngFor="let movie of movies">
-      <h3>{{ movie.title }}</h3>
-    </li>
-  </ul>
+<!-- Contenuto attuale mostrato solo se il pulsante non è stato ancora premuto -->
+<div *ngIf="!isSubmitPressed">
+  <div>
+    <h4>Ordina Per {{sortCriteria}}</h4>
+  </div>
+
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let movie of movies" cdkDrag>
+      {{movie.title}}
+      <img *cdkDragPreview [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/'+movie.poster_path" [alt]="movie.title">
+    </div>
+  </div>
 </div>
-<div *ngIf="!movies || movies.length === 0">
-  <p>Nessun film disponibile al momento.</p>
+
+<!-- Contenuto che verrà mostrato dopo aver premuto il pulsante "submit" -->
+<div *ngIf="isSubmitPressed">
+  <div>
+    <h4>Ecco la Lista dei Film Ordinati</h4>
+  </div>
+
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let movie of movies" cdkDrag>
+      {{movie.title}}
+      <img *cdkDragPreview [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/'+movie.poster_path" [alt]="movie.title">
+    </div>
+  </div>
+
 </div>
+
+<!-- Nascondi il pulsante "submit" dopo averlo premuto -->
+
+<button
+  type="submit"
+  class="btn btn-primary rounded submit px-3 mt-2 green-border-button"
+  mat-raised-button
+  (click)="checkMoviesByUser()"
+  [hidden]="isSubmitPressed"
+  style="border-color: green;"
+>
+  Termina Gioco
+</button>
