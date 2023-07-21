@@ -16,6 +16,10 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { GiocaComponent } from './components/gioca/gioca.component';
+import { CdkDrag, CdkDragPreview, CdkDropList } from '@angular/cdk/drag-drop';
+import { GameResultsComponent } from './components/game-results/game-results.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
