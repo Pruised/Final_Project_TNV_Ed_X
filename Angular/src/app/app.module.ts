@@ -16,14 +16,6 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './@shared/modules/angular-material/angular-material.module';
 import { GiocaComponent } from './components/gioca/gioca.component';
-import {
-  CdkDragDrop,
-  CdkDropList,
-  CdkDragPreview,
-  CdkDrag,
-  moveItemInArray,
-} from '@angular/cdk/drag-drop';
-import { GameResultsComponent } from './components/game-results/game-results.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +26,10 @@ import { GameResultsComponent } from './components/game-results/game-results.com
     LogoutComponent,
     NavbarComponent,
     WelcomeComponent,
+    HeroComponent,
     ProfileComponent,
+    RankingsComponent,
+    FooterComponent,
     RankingsComponent,
     GiocaComponent,
     GameResultsComponent
