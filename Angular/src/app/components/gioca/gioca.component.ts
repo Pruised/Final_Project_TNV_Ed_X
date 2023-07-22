@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DbmoviesService } from '../../service/dbmovieservice.service';
 import { Movie} from '../../models/movie';
 import {
@@ -19,8 +19,7 @@ export class GiocaComponent implements OnInit {
 
   movies!: Movie[] ;
   criteria:String[]=["popolarità","Data d'uscita"]; 
-  sortCriteria =this.shuffleArray(this.criteria)[0];
-  moviesByUser: Movie[]=[];
+  sortedCriteria =this.shuffleArray(this.criteria)[0];
   isSubmitPressed: boolean = false;
   
 
@@ -29,6 +28,11 @@ export class GiocaComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
+  }
+
+
+   shuffleArray(movies: any []) {
+    return movies.sort(()=> Math.random()-0.5);
   }
 
   getMovies() {
@@ -42,39 +46,18 @@ export class GiocaComponent implements OnInit {
       }
     });
 
-
   }
 
   drop(event: CdkDragDrop<{ title: string; poster: string }[]>) {
     moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
-    this.moviesByUser=this.movies.slice();
   }
 
-
-  shuffleArray(movies: any []) {
-    return movies.sort(()=> Math.random()-0.5);
-  }
-
-  sortMovies(movies: Movie[]): Movie[] { 
-    // Ordina la lista in base al primo criterio random (0: anno di uscita, 1: popolarità)
-    if (this.sortCriteria === "Data d'uscita") {
-      movies.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
-    } else if (this.sortCriteria === "popolarità") {
-      movies.sort((a, b) => b.popularity - a.popularity);
-    }
-    return movies;
-
-
-  }
   checkMoviesByUser() {
-    this.isSubmitPressed= true;
-    console.log('film ordinati dall utente',this.moviesByUser);
-    console.log('film ordinati dal calcolatore',this.sortMovies(this.movies));
+    this.isSubmitPressed = true;
+    this.dbmoviesService.setMoviesByUser(this.movies);
+    this.dbmoviesService.setSortedCriteria(this.sortedCriteria);
+    console.log('film ordinati dal calcolatore', this.movies);
+    this.router.navigate(['/results']);
   }
-
-
-  navigateToResults() {
-    // Naviga verso il componente di destinazione
-    this.router.navigate(['/results']); 
-  }
+  
 }
