@@ -1,3 +1,4 @@
+
 <!-- Contenuto attuale mostrato solo se il pulsante non è stato ancora premuto -->
 <div class ="container">
   <div *ngIf="!isSubmitPressed" class="header-container">
@@ -5,16 +6,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
     <h3>Benvenuto!!</h3>
     <h4>Ordina Per {{sortCriteria}}</h4>
+
+<div *ngIf="!isSubmitPressed">
+  <div>
+    <h4>Ordina per {{sortedCriteria }}</h4>
+
   </div>
 </div>
 
 
   <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+
     <div class="example-list" *ngFor="let movie of movies" cdkDrag>
       {{movie.title}}
       <img *cdkDragPreview [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/'+movie.poster_path" [alt]="movie.title">
+
+    <div class="example-box" *ngFor="let movie of movies" cdkDrag>
+      {{ movie.title }}
+      <img
+        *cdkDragPreview
+        [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + movie.poster_path"
+        [alt]="movie.title"
+      >
+
     </div>
+    <button mat-raised-button (click)="checkMoviesByUser()">submit</button>
   </div>
+
 <!-- Contenuto che verrà mostrato dopo aver premuto il pulsante "submit" -->
 <div *ngIf="isSubmitPressed">
   <div class = "section-header">
@@ -44,4 +62,14 @@
   Conferma
 </button>
 </div>
+</div>
+=======
+</div>
+
+<div *ngIf="isSubmitPressed">
+  
+      
+          <tnv-game-results></tnv-game-results>
+       
+   
 </div>

@@ -20,7 +20,9 @@ import { CdkDrag, CdkDragPreview, CdkDropList } from '@angular/cdk/drag-drop';
 import { GameResultsComponent } from './components/game-results/game-results.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,9 @@ import { HeroComponent } from './components/hero/hero.component';
     CdkDropList,
     CdkDrag,
     CdkDragPreview,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
