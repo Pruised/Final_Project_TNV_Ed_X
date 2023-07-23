@@ -1,12 +1,16 @@
 
+.header {
+  margin-bottom: 20px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Imposta l'altezza minima della pagina per centrare il contenuto verticalmente */
-  margin: 0 auto; /* Centra il contenuto orizzontalmente */
-  max-width: 1500px; /* Imposta una larghezza massima per evitare che il contenuto si espanda troppo */
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 1500px;
   padding: 20px;
 }
 
@@ -15,75 +19,66 @@
   background-image: url('/assets/images/sedileCinema.jpg');
   background-position: 50% 50%;
   background-size: cover;
-  margin-bottom: 40px;
-  margin-top: -116px; /* Riduci il margine superiore per spostare l'intestazione più in alto */
-  width: 200%; /* Imposta la larghezza al 100% per occupare l'intera larghezza della pagina */
+  margin-top:20px;
+  margin-bottom: 20px;
+  position:relative;
+  width: 200%;
   height: 300px;
-  display: flex; /* Utilizza flexbox per centrare il contenuto */
-  align-items: center; /* Centra verticalmente il contenuto */
-  justify-content: center; /* Centra orizzontalmente il contenuto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -117px;
 }
 
-
-.h3 .h4{
+.h3, .h4 {
   margin-top: auto;
   padding-top: 100px;
 }
 
-.main-header  {
-  font-family: "Special Elite";
-  color:  lightgray;
-  font-size: 40px;
-  font-weight: bold;
-  
+.main-header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
-.section-header{
+
+.section-header {
   text-align: center;
   margin-bottom: 40px;
   margin-top: 40px;
+  font-family: "Special Elite";
+  color: lightgrey;
+  font-size: 40px;
+  font-weight: bold;
 }
 
-/* Stile del contenitore dei film */
 .example-list {
-  /* Imposta un'area fissa per contenere gli elementi draggabili */
-  min-height: 100px;
-  width: 50%;
-  max-width: 600px;
-
-  /* Centra gli elementi nella colonna */
+  min-height: 200px;
+  width: 80%;
+  max-width: 500px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   align-items: center;
   justify-self: center;
-
-  /* Aggiunge uno spazio tra gli elementi */
-  gap: 3px;
-
-  /* Aggiunge un padding e una margine per spaziare l'elenco dal resto della pagina */
+  gap: 5px;
   padding: 20px;
   margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
   background-image: url('/assets/images/popcornTexture.jpg');
-  background-size: cover;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Stile delle carte dei film */
-.example-list .example-list {
-  width: 200px; /* Imposta una larghezza fissa per le carte dei film */
-  height: 50px; /* Imposta un'altezza fissa per le carte dei film */
-  padding: 10px;
+.example-box {
+  width: 250px;
+  height: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: beige;
+  background-color: lightyellow;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   cursor: grab;
   transition: box-shadow 0.3s ease;
@@ -91,30 +86,25 @@
   background-image: none;
 }
 
-
-/* Aggiungi una transizione per l'anteprima delle locandine dei film durante il drag and drop */
-.example-list .example-list .cdk-drag-preview {
+.example-box .cdk-drag-preview {
   transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
 }
 
-/* Stile dell'elemento durante l'animazione di trascinamento */
 .cdk-drag-animating {
   transition: transform 0.3s;
-  z-index: 1; /* Imposta uno z-index maggiore per farlo apparire sopra gli altri elementi durante l'animazione */
+  z-index: 1;
 }
 
-/* Opacità dell'elemento-placeholder quando si trascina un elemento sopra di esso */
 .cdk-drag-placeholder {
   opacity: 0.5;
 }
 
-/* Stile per il pulsante di conferma */
 .page-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px; /* Aumenta il margine superiore per spostare il pulsante più in alto */
-  margin-bottom: 20px; /* Aggiungi un margine inferiore per aggiungere spazio tra il pulsante e gli elementi sopra di esso */
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .submit {
