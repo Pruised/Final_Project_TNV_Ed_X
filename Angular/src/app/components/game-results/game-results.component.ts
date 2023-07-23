@@ -1,22 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { DbmoviesService } from 'src/app/service/dbmovieservice.service';
-import { GiocaComponent } from '../gioca/gioca.component';
 import { Movie } from 'src/app/models/movie';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/@core/services/auth.service';
 
 @Component({
   selector: 'tnv-game-results',
-  templateUrl: './game-results.component.html',
+  templateUrl:'./game-results.component.html',
   styleUrls: ['./game-results.component.scss']
 })
 export class GameResultsComponent {
 
+  movie:Movie|undefined;
   sortedCriteria=this.dbmoviesService.getSortedCriteria();
   sortedMoviesByUser =this.dbmoviesService.getMoviesByUser();
   sortedMoviesByCalculator=[...this.sortedMoviesByUser]
   currentUser: Partial<User> = {};
+  
+
   constructor(private dbmoviesService: DbmoviesService,private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
@@ -49,7 +51,20 @@ export class GameResultsComponent {
     this.currentUser.movies = count;
     return sortedMoviesByCalculator;
   }
+
+    
+
+onClicked(id: number){
+  this.router.navigateByUrl(`/results/movieDetails${id}` );
+  console.log(id)
   }
+}
+
+
+
+
+
+  
 
 
 

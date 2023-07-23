@@ -12,24 +12,17 @@
     </li>
   </ul>
 </div>
-
-
-
+     
 <div class="movie-list">
-<h4>Seleziona un film che vuoi salvare nei preferiti, dare un voto e lasciare un commento:</h4>
-</div>
+ <h4>Seleziona un film che vuoi salvare nei preferiti, dare un voto e lasciare un commento:</h4>
+ </div>
 
-
-
-<div class="container">
-      <div class="row">
-        <div class="py-2 col-6 col-md-3 col-lg-2" *ngFor="let movie of sortedMoviesByCalculator">
-          <div class="card border-0 shadow-sm">
-            <img [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + movie.poster_path" class="card-img-top" [alt]="movie.title">
-            <div *ngIf="movie.video" class="card-body">
-              <div *ngIf="!movie.video" class="card-body"> 
-            </div>
-          </div>
-        </div>
+<div class="movie-container">
+  <ng-container *ngFor="let movie of sortedMoviesByCalculator">
+    <div class="movie-card">
+      <div class="card border-0 shadow-sm py-2 text-center">
+        <tnv-game-results-item (clicked)="onClicked($event)" [movie]="movie"></tnv-game-results-item>
       </div>
+    </div>
+  </ng-container>
 </div>

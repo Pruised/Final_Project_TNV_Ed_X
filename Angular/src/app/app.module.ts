@@ -23,6 +23,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { GameResultsItemComponent } from './components/game-results-item/game-results-item.component';
+import { GameResultsItemDetailsComponent } from './components/game-results-item-details/game-results-item-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import { MatIconModule } from '@angular/material/icon';
     FooterComponent,
     RankingsComponent,
     GiocaComponent,
-    GameResultsComponent
+    GameResultsComponent,
+    GameResultsItemComponent,
+    GameResultsItemDetailsComponent
   ],
   imports: [
     BrowserModule,
