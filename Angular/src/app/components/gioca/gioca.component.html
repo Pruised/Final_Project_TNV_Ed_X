@@ -1,9 +1,26 @@
+
+<!-- Contenuto attuale mostrato solo se il pulsante non è stato ancora premuto -->
+<div class ="container">
+  <div *ngIf="!isSubmitPressed" class="header-container">
+  <div class="main-header">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <h3>Benvenuto!!</h3>
+    <h4>Ordina Per {{sortCriteria}}</h4>
+
 <div *ngIf="!isSubmitPressed">
   <div>
     <h4>Ordina per {{sortedCriteria }}</h4>
+
   </div>
+</div>
+
 
   <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+
+    <div class="example-list" *ngFor="let movie of movies" cdkDrag>
+      {{movie.title}}
+      <img *cdkDragPreview [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/'+movie.poster_path" [alt]="movie.title">
+
     <div class="example-box" *ngFor="let movie of movies" cdkDrag>
       {{ movie.title }}
       <img
@@ -11,9 +28,42 @@
         [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/' + movie.poster_path"
         [alt]="movie.title"
       >
+
     </div>
     <button mat-raised-button (click)="checkMoviesByUser()">submit</button>
   </div>
+
+<!-- Contenuto che verrà mostrato dopo aver premuto il pulsante "submit" -->
+<div *ngIf="isSubmitPressed">
+  <div class = "section-header">
+  <div>
+    <h4>Ecco la Lista dei Film Ordinati</h4>
+  </div>
+</div>
+
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-list" *ngFor="let movie of movies" cdkDrag>
+      {{movie.title}}
+      <img *cdkDragPreview [src]="'https://image.tmdb.org/t/p/w220_and_h330_face/'+movie.poster_path" [alt]="movie.title">
+    </div>
+  </div>
+</div>
+
+<!-- Nascondi il pulsante "submit" dopo averlo premuto -->
+<div class = "page-button">
+<button
+  type="submit"
+  class="btn btn-primary rounded submit px-3 mt-2 green-border-button"
+  mat-raised-button
+  (click)="checkMoviesByUser()"
+  [hidden]="isSubmitPressed"
+  style="border-color: green;"
+>
+  Conferma
+</button>
+</div>
+</div>
+=======
 </div>
 
 <div *ngIf="isSubmitPressed">
