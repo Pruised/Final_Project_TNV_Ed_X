@@ -1,6 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-@import "bootstrap/scss/bootstrap";
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -18,8 +15,7 @@ h1, h2, h3, h4 {
 
 header {
     width: 100%;
-    height: 300px;
-    background-image: url('/assets/images/film.webp');
+    background-image: url('/assets/images/hero-film.gif');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -27,17 +23,18 @@ header {
     justify-content: center;
     flex-direction: column;
     box-shadow: 0 3px 5px lightgray;
+    padding: 50px 0;
 }
 
 header img {
-    height: 50%; /* Imposta un'altezza relativa in percentuale rispetto al contenitore */
     max-width: 100%;
+    height: auto;
     object-fit: contain;
-  }
+}
 
 header h1 {
     color: white;
-    font-size: 120px;
+    font-size: 6vw; 
     margin: 0;
     text-shadow: 2px 2px 4px black;
 }
@@ -48,6 +45,7 @@ header p {
     font-size: 2.3rem;
     margin: 0;
     text-shadow: 2px 2px 4px black;
+    font-size: 2.5vw; 
 }
 
 .container {
@@ -59,4 +57,14 @@ header p {
 .container section {
     margin-top: 64px;
     margin-bottom: 32px;
+}
+
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 8vw; 
+    }
+
+    header p {
+        font-size: 4vw;
+    }
 }
