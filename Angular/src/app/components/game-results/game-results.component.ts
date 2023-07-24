@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { DbmoviesService } from 'src/app/service/dbmovieservice.service';
 import { Movie } from 'src/app/models/movie';
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/@core/services/auth.service';
   templateUrl:'./game-results.component.html',
   styleUrls: ['./game-results.component.scss']
 })
-export class GameResultsComponent {
+export class GameResultsComponent implements OnInit{
 
   movie:Movie|undefined;
   sortedCriteria=this.dbmoviesService.getSortedCriteria();
@@ -19,14 +19,23 @@ export class GameResultsComponent {
   currentUser: Partial<User> = {};
   
 
-  constructor(private dbmoviesService: DbmoviesService,private router: Router, private authService: AuthService) {}
+  constructor(private dbmoviesService: DbmoviesService,private router: Router, private authService: AuthService) {
+  }
 
   ngOnInit() {
+  this.loadData();
   this.compareMovies(this.sortedMoviesByUser,this.sortedMoviesByCalculator)
   console.log(this.currentUser.movies)
   
-    
+
   }
+
+  loadData(){
+    const sortedCriteria=this.dbmoviesService.getSortedCriteria();
+    const sortedMoviesByUser =this.dbmoviesService.getMoviesByUser();
+    const sortedMoviesByCalculator=[...this.sortedMoviesByUser]
+  }
+
 
   sortMovies(movies: Movie[]) { 
     if (this.sortedCriteria === "Data d'uscita") {
@@ -55,19 +64,8 @@ export class GameResultsComponent {
     
 
 onClicked(id: number){
-  this.router.navigateByUrl(`/results/movieDetails${id}` );
-  console.log(id)
-  }
+  this.router.navigateByUrl(`/result/movie/${id}` );
 }
 
 
-
-
-
-  
-
-
-
-  
-
-
+}

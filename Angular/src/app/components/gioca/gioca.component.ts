@@ -57,7 +57,7 @@ export class GiocaComponent implements OnInit {
     this.dbmoviesService.setMoviesByUser(this.movies);
     this.dbmoviesService.setSortedCriteria(this.sortedCriteria);
     console.log('film ordinati dal calcolatore', this.movies);
-    this.router.navigate(['/results']);
+    this.router.navigate(['/result']);
   }
   
 }

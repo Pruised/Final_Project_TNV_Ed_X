@@ -9,6 +9,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { RankingsComponent } from "./components/rankings/rankings.component";
 import { GiocaComponent } from './components/gioca/gioca.component';
 import { GameResultsComponent } from "./components/game-results/game-results.component";
+import { GameResultsItemDetailsComponent } from "./components/game-results-item-details/game-results-item-details.component";
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
       { path: "profile", component: ProfileComponent },
       { path: "rankings", component: RankingsComponent },
       { path: "gioca", component: GiocaComponent },
-      { path: "results", component: GameResultsComponent },
+      { path: "result", component: GameResultsComponent },
+      { path: "result/movie/:id", component: GameResultsItemDetailsComponent },
       { path: "", redirectTo: "welcome", pathMatch: 'full' },
     ],
   },

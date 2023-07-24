@@ -1,1 +1,25 @@
-<p>game-results-item-details works!</p>
+<div class="card">
+    <div class="poster-container">
+        <img [src]="'https://image.tmdb.org/t/p/w342/' + movie?.poster_path" [alt]="movie?.title" class="poster">
+    </div>
+    <div class="card-content">
+        <div class="info-container">
+            <h3 class="title">{{ movie?.title }}</h3>
+            <p class="release-date">Data d'uscita: {{ movie?.release_date }}</p>
+            <p class="release-date">Lingua Originale: {{ movie?.original_language }}</p>
+            <div class="rating-container">
+                <span class="rating-text"> voto medio:</span>
+                <span class="rating-icon">&#9733;</span>
+                <span class="rating-value"> {{ movie?.vote_average }}/10.0</span>
+            </div>
+        </div>
+        <p class="overview">{{ movie?.overview }}</p>
+        <div class="comment-container">
+            <ngb-rating [rate]="4" [max]="5"></ngb-rating>
+            <textarea class="comment-box" placeholder="Lascia un commento..."></textarea>
+            <div class="buttons-container">
+                <button class="comment-btn">Aggiungi ai preferiti</button>
+            </div>
+        </div>
+    </div>
+</div>
