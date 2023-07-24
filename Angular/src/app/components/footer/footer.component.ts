@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'tnv-footer',
@@ -6,10 +6,5 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  showFooter: boolean = false;
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll() {
-    this.showFooter = (window.innerHeight + window.scrollY) >= document.body.offsetHeight;
-  }
 }
