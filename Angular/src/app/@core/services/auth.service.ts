@@ -8,8 +8,7 @@ import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
   providedIn: "root",
 })
 export class AuthService {
-  springBootUrl = 
-  'http://localhost:8080/users';
+  springBootUrl = 'http://localhost:8080/users';
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -25,6 +24,11 @@ export class AuthService {
     this.router.navigateByUrl("/register");
 
     return this.http.post<RegisterDTO>(`${this.springBootUrl}/register`,registerData);
+  }
+
+  getAllUsers(){
+    this.router.navigateByUrl("/rankings");
+    return this.http.get<User[]>(`${this.springBootUrl}/all`);
   }
 
   logout() {

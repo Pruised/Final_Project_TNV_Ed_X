@@ -61,10 +61,10 @@ public class UserService {
         return userDAO.findAll();
     }
 
-    public String updateUser(int id, User user) {
+    public User updateUser(int id, User user) {
         user.setId(id);
         userDAO.save(user);
-        return "Utente aggiornato correttamente";
+        return user;
     }
 
     public String deleteUser(int id) {
@@ -85,6 +85,16 @@ public class UserService {
         return userDAO.findByUsernameContainsAndEmailContains(partialUsername, partialMail);
     }
 
+    public User updatePointsUser(int id,int points) {
+        User user = userDAO.findById(id).orElse(null);
+        if (user != null) {
+            user.setPoints(user.getPoints() + points);
+            userDAO.save(user);
+            return user;
+        }
+        else return null;
+    }
 }
+
 
 

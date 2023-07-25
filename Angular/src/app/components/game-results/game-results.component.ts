@@ -1,41 +1,37 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { DbmoviesService } from 'src/app/service/dbmovieservice.service';
+import { DbmoviesService } from 'src/app/services/dbmovieservice.service';
 import { Movie } from 'src/app/models/movie';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/@core/services/auth.service';
+import { RankingsService } from 'src/app/services/rankings.service';
 
 @Component({
   selector: 'tnv-game-results',
   templateUrl:'./game-results.component.html',
   styleUrls: ['./game-results.component.scss']
 })
-export class GameResultsComponent implements OnInit{
+export class GameResultsComponent implements OnInit {
 
-  movie:Movie|undefined;
-  sortedCriteria=this.dbmoviesService.getSortedCriteria();
-  sortedMoviesByUser =this.dbmoviesService.getMoviesByUser();
-  sortedMoviesByCalculator=[...this.sortedMoviesByUser]
-  currentUser: Partial<User> = {};
-  
+  movie: Movie | undefined;
+  sortedCriteria = this.dbmoviesService.getSortedCriteria();
+  sortedMoviesByUser = this.dbmoviesService.getMoviesByUser();
+  sortedMoviesByCalculator = [...this.sortedMoviesByUser];
+  currentUser!: User | undefined; // Initialize as undefined
 
-  constructor(private dbmoviesService: DbmoviesService,private router: Router, private authService: AuthService) {
+  constructor(
+    private dbmoviesService: DbmoviesService,
+    private router: Router,
+    private rankService: RankingsService
+  ) {
+    
   }
-
+    
   ngOnInit() {
-  this.loadData();
-  this.compareMovies(this.sortedMoviesByUser,this.sortedMoviesByCalculator)
-  console.log(this.currentUser.movies)
-  
-
+    this.currentUser=this.rankService.getCurrentUser();
+    console.log('Punteggio iniziale:', this.currentUser); // Debug: verifica il punteggio iniziale
+    this.compareMovies(this.sortedMoviesByUser, this.sortedMoviesByCalculator);
   }
-
-  loadData(){
-    const sortedCriteria=this.dbmoviesService.getSortedCriteria();
-    const sortedMoviesByUser =this.dbmoviesService.getMoviesByUser();
-    const sortedMoviesByCalculator=[...this.sortedMoviesByUser]
-  }
-
 
   sortMovies(movies: Movie[]) { 
     if (this.sortedCriteria === "Data d'uscita") {
@@ -46,26 +42,38 @@ export class GameResultsComponent implements OnInit{
     return movies;
   }
 
-  compareMovies(sortedMoviesByUser: Movie[],sortedMoviesByCalculator:Movie[]){
-    let count: number=0;
+  compareMovies(sortedMoviesByUser: Movie[], sortedMoviesByCalculator: Movie[]) {
+    let count: number = 0;
     this.sortMovies(sortedMoviesByCalculator);
-    this.currentUser = this.authService.getCurrentUser();
 
     for (let i = 0; i < sortedMoviesByCalculator.length; i++) {
-      if (sortedMoviesByCalculator[i] === sortedMoviesByUser[i]) {
+      // Esegue un confronto basato su un identificatore univoco (supponendo che gli oggetti Movie abbiano un ID)
+      if (sortedMoviesByCalculator[i].id === sortedMoviesByUser[i].id) {
         count++;
-        sortedMoviesByCalculator[i].video=true;
+        sortedMoviesByCalculator[i].video = true;
       }
     }
-    this.currentUser.movies = count;
-    return sortedMoviesByCalculator;
+
+    let gameSessionPoints = count * 10;
+    if (this.currentUser) {
+      this.addPointsUser(this.currentUser,gameSessionPoints);
+    }
   }
 
-    
-
-onClicked(id: number){
-  this.router.navigateByUrl(`/result/movie/${id}` );
-}
-
-
+  addPointsUser(user: User, points: number) {
+    this.rankService.addPointsUser(user, user.id,points).subscribe({
+      next: (response) => {
+        this.currentUser = response;
+        console.log('Utente aggiornato', this.currentUser);
+        localStorage.setItem("user", JSON.stringify(response));
+      },
+      error: (error: any) => {
+        console.error('Si è verificato un errore nel salvataggio:', error);
+      }
+    });
+  }
+  
+  onClicked(id: number) {
+    this.router.navigateByUrl(`/result/movie/${id}`);
+  }
 }
