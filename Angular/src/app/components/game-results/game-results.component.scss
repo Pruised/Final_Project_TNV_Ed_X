@@ -1,16 +1,37 @@
 
-
-/* Stile per il contenitore principale */
 .movie-list {
   margin-top: 40px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  font-family: "Special Elite", cursive;
+}
+
+.movie-list h4 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.movie-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.movie-list li {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .green-text {
   color: green;
+  font-weight: bold;
 }
 
 .red-text {
   color: red;
+  font-weight: bold;
 }
 
 .movie-container {
@@ -20,37 +41,40 @@
 }
 
 .movie-card {
-  width: calc(20% - 10px); /* 20% per avere cinque elementi su una riga, sottrai 10px per lasciare spazio tra le card */
-  margin: 5px;
+  width: calc(20% - 20px); 
+  margin: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 1200px) {
-  /* Riduci il numero di elementi per riga a 4 su schermi con larghezza massima di 1200px */
   .movie-card {
-    width: calc(25% - 10px);
+    width: calc(25% - 20px);
   }
 }
 
 @media (max-width: 992px) {
-  /* Riduci il numero di elementi per riga a 3 su schermi con larghezza massima di 992px */
   .movie-card {
-    width: calc(33.33% - 10px);
+    width: calc(33.33% - 20px);
   }
 }
 
 @media (max-width: 768px) {
-  /* Riduci il numero di elementi per riga a 2 su schermi con larghezza massima di 768px */
   .movie-card {
-    width: calc(50% - 10px);
+    width: calc(50% - 20px);
   }
 }
 
 @media (max-width: 576px) {
-  /* Riduci il numero di elementi per riga a 1 su schermi con larghezza massima di 576px */
   .movie-card {
-    width: calc(50% - 10px)
+    width: calc(100% - 20px);
   }
 }
-
-
-
