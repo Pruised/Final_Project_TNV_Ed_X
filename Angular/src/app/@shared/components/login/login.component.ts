@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         next: (response) => {
           localStorage.setItem("user", JSON.stringify(response));
           this.router.navigateByUrl("/welcome");
+          console.log(localStorage.getItem("user"));   
         },
         error: () => alert("Login Errrato"),
       });

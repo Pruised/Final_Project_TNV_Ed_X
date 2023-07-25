@@ -15,4 +15,6 @@ public interface UserRepositoryDAO extends CrudRepository<User, Integer> {
     public boolean existsByUsername(String name);
 
     public User findByUsername(String username);
+
+
 }

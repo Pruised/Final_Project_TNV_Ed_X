@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie } from 'src/app/models/movie';
-import { DbmoviesService } from 'src/app/service/dbmovieservice.service';
+import { DbmoviesService } from 'src/app/services/dbmovieservice.service';
 
 @Component({
   selector: 'tnv-game-results-item-details',

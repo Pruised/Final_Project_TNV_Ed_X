@@ -14,8 +14,8 @@ public class Authority {
     private String authority;
 
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false,  nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable =false,  nullable = false)
     private User user;
 
     public Authority(){}

@@ -17,6 +17,7 @@ public class User {
     private String password;
     private String email;
     private boolean enabled;
+    private int points;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Authority> authorities;
@@ -30,6 +31,16 @@ public class User {
     public void generateDefaultPassword() {
         this.password = this.username + "#" + this.getEmail();
     }
+
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     public int getId() {
         return id;
     }

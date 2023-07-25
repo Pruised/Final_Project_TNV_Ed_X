@@ -21,10 +21,17 @@ public class UserController {
         this.userService = userService;
     }
 
+    @CrossOrigin(origins = "http://localhost:4200/")
+    @PutMapping("/{id}/{points}")
+    public User updatePointsUser(@PathVariable("id") int id,@PathVariable("points")int points) {
+        return userService.updatePointsUser(id, points);
+    }
+
     @PostMapping("/register")
     public User addUser(@RequestBody User user) {
             return userService.registerUser(user);
     }
+
 
     @PostMapping("/login")
     public User loginUser(@RequestBody User user) {
@@ -47,15 +54,17 @@ public class UserController {
         return userService.searchUserByUsernameAndEmail(partialUsername, partialMail);
     }
 
-    @GetMapping("users/all")
+    @GetMapping("/all")
     public Iterable<User> allUsers() {
         return userService.allUsers();
     }
 
-    @PutMapping("users/{id}")
-    public String updateUser(@PathVariable("id") int id, @RequestBody User user) {
-        return userService.updateUser(id, user);
-    }
+
+    //@CrossOrigin(origins = "http://localhost:4200/")
+    ////@PutMapping("/{id}")
+    //public User updateUser(@PathVariable("id") int id, @RequestBody User user) {
+    //    return userService.updateUser(id, user);
+   // }
 
     @DeleteMapping("users/{id}")
     public String deleteUser(@PathVariable("id") int id) {

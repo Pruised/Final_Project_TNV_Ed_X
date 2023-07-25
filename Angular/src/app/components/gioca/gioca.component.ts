@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DbmoviesService } from '../../service/dbmovieservice.service';
+import { DbmoviesService } from '../../services/dbmovieservice.service';
 import { Movie} from '../../models/movie';
 import {
   CdkDragDrop,
@@ -21,8 +21,6 @@ export class GiocaComponent implements OnInit {
   criteria:String[]=["popolarità","Data d'uscita"]; 
   sortedCriteria =this.shuffleArray(this.criteria)[0];
   isSubmitPressed: boolean = false;
-  
-
 
   constructor(private dbmoviesService: DbmoviesService,private router: Router) {}
 

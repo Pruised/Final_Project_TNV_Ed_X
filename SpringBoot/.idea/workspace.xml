@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1229a58a-d78b-42b3-95ad-618176a70394" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Angular/src/service/dbmovies/dbmovies.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Angular/src/service/dbmovies/dbmovies.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Node/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Node/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Node/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raccoltaUtenti/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/raccoltaUtenti/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/src/app/@core/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/src/app/@core/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/src/app/components/game-results/game-results.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/src/app/components/game-results/game-results.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/src/app/components/rankings/rankings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/src/app/components/rankings/rankings.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Angular/src/app/components/rankings/rankings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Angular/src/app/components/rankings/rankings.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +30,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/ink/OneDrive/Desktop/Documenti/TNV/ProgettoFinale/Final_Project_TNV_Ed_X/SpringBoot"
