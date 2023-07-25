@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  width: 100%;
   margin: 0 auto;
   max-width: 1500px;
   padding: 20px;
@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: -117px;
+  top: -137px;
 }
 
 .h3, .h4 {
@@ -63,28 +63,42 @@
   gap: 5px;
   padding: 20px;
   margin-bottom: 20px;
-  background-image: url('/assets/images/popcornTexture.jpg');
+  background-image: url('/assets/images/gameBackground.jpg');
   background-size: cover; 
-  background-repeat: no-repeat;
+  background-repeat: cover;
   background-position: center;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top:20px;
+  top:40px;
 }
 
 .example-box {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
   width: 250px;
   height: 50px;
   margin-top: 5px;
   margin-bottom: 5px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px; 
   background-color: lightyellow;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   cursor: grab;
-  transition: box-shadow 0.3s ease;
-  position: relative;
-  background-image: none;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; 
+  position: center;
+  font-size: 15px; 
+  font-family: "Special Elite";
+  color: #333; 
 }
+
+.example-box:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+  transform: scale(1.05); 
+}
+
 
 .example-box .cdk-drag-preview {
   transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
