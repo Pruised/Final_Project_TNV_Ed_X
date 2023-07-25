@@ -1,0 +1,56 @@
+
+
+/* Stile per il contenitore principale */
+.movie-list {
+  margin-top: 40px;
+}
+
+.green-text {
+  color: green;
+}
+
+.red-text {
+  color: red;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-card {
+  width: calc(20% - 10px); /* 20% per avere cinque elementi su una riga, sottrai 10px per lasciare spazio tra le card */
+  margin: 5px;
+}
+
+@media (max-width: 1200px) {
+  /* Riduci il numero di elementi per riga a 4 su schermi con larghezza massima di 1200px */
+  .movie-card {
+    width: calc(25% - 10px);
+  }
+}
+
+@media (max-width: 992px) {
+  /* Riduci il numero di elementi per riga a 3 su schermi con larghezza massima di 992px */
+  .movie-card {
+    width: calc(33.33% - 10px);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Riduci il numero di elementi per riga a 2 su schermi con larghezza massima di 768px */
+  .movie-card {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 576px) {
+  /* Riduci il numero di elementi per riga a 1 su schermi con larghezza massima di 576px */
+  .movie-card {
+    width: calc(50% - 10px)
+  }
+}
+
+
+

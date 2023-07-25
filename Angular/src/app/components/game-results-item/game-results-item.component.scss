@@ -1,0 +1,20 @@
+.card-body {
+    position:relative; 
+    transition: transform 0.2s ease;
+    border-radius: 10px
+  }
+  
+  .card-img-top {
+    max-width: 100%; 
+    max-height:110%; 
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5), 0px 0px 8px black; 
+    
+  }
+  
+  .card-body:hover {
+    transform: scale(1.15);
+  }
+  
+  .card-title {
+    font-size: 15px;
+  }
