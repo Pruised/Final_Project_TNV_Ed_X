@@ -50,7 +50,7 @@ export class GameResultsComponent implements OnInit {
       // Esegue un confronto basato su un identificatore univoco (supponendo che gli oggetti Movie abbiano un ID)
       if (sortedMoviesByCalculator[i].id === sortedMoviesByUser[i].id) {
         count++;
-        sortedMoviesByCalculator[i].video = true;
+        sortedMoviesByCalculator[i].catch = true;
       }
     }
 

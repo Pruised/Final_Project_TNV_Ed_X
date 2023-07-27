@@ -34,7 +34,7 @@ export class GiocaComponent implements OnInit {
   }
 
   getMovies() {
-    this.dbmoviesService.getFilms().subscribe({
+    this.dbmoviesService.getMovies().subscribe({
       next: (res:any) => {
         this.movies = this.shuffleArray(res.results).slice(0,10);
         console.log('Dati recuperati dall\'API:', this.movies);

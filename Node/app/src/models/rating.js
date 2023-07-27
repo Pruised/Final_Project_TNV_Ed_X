@@ -4,17 +4,27 @@ import db from "../../config/config.js";
 const { DataTypes } = Sequelize;
 
 const Rating = db.define('ratings', {
+  idRating: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
   userId: {
-    type: DataTypes.STRING
+    type: DataTypes.INTEGER
   },
   movieId: {
-    type: DataTypes.STRING
-  },
-  rating: {
     type: DataTypes.INTEGER
+  },
+  ratingStars: {
+    type: DataTypes.INTEGER
+  },
+  textComment: {
+    type: DataTypes.STRING
   }
+
 }, {
-  freezeTableName: true
+  freezeTableName: true,
+  timestamps: true
 });
  
 export default Rating;

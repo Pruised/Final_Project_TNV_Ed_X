@@ -52,12 +52,12 @@ export class DbmoviesService {
     return this.sortedCriteria;
   }
 
-  getFilms(): Observable<Movie[]> {
+  getMovies(): Observable<Movie[]> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.accessToken}`);
     return this.http.get<Movie[]>(this.movieListUrl, { headers });
   }
 
-  getFilm(id: number): Observable<Movie> {
+  getMovie(id: number): Observable<Movie> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.accessToken}`);
     return this.http.get<Movie>(`${this.movieUrl}/${id}`, { headers });
   }

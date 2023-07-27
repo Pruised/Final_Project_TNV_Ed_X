@@ -1,0 +1,21 @@
+<div class="reviews-list">
+  <h4 class="centered">La lista dei tuoi film preferiti</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="centered">film</th>
+        <th scope="col" class="centered">commento lasciato</th>
+        <th scope="col" class="centered">rating</th>
+        <th scope="col" class="centered">elimina</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviews">
+        <td class="centered">{{ review.movieId }}</td>
+        <td class="large-row">{{ review.textComment }}</td>
+        <td><ngb-rating [rate]="review.ratingStars" [max]="5" [readonly]="true"></ngb-rating></td>
+        <td class="centered"><button>elimina</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
