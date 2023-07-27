@@ -1,11 +1,15 @@
-
 <div class="movie-list">
-  <h4>Ecco la classifica degli utenti:</h4>
+  <h4>Classifica utenti:</h4>
   <table class="table">
     <thead>
       <tr>
         <th scope="col">Username</th>
-        <th scope="col">Punteggio</th>
+        <th scope="col" (click)="sortUsers()">
+          Punteggio
+          <span class="material-icons arrows">
+            {{ sortAsc ? 'arrow_downward' : 'arrow_upward' }}
+          </span>
+        </th>
       </tr>
     </thead>
     <tbody>

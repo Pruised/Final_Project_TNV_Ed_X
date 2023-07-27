@@ -43,23 +43,3 @@
   font-weight: 400;
   color: #666666;
 }
-
-.profile-logout {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border: none;
-  border-radius: 25px;
-  background-color: #ffffff;
-  color: #333;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-.profile-logout:hover {
-  background-color: #bbb;
-}

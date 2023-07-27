@@ -20,6 +20,9 @@ export class RankingsComponent implements OnInit {
   'http://localhost:8080/users';
   user!: User;
   users: User[] | undefined;
+  sortKey = 'points';
+  sortAsc = true;
+
   constructor(private activatedRoute: ActivatedRoute,private rankService:RankingsService, private http: HttpClient) { 
   this.user=this.getCurrentUser();
   }
@@ -44,6 +47,11 @@ export class RankingsComponent implements OnInit {
         }
       });
   }
-  }
-
-
+  
+  sortUsers() {
+    this.sortAsc = !this.sortAsc;
+    this.users = this.users?.sort((a: any, b: any) => {
+      return (this.sortAsc ? 1 : -1) * (Number(a.points) - Number(b.points));
+    });
+  }  
+}  

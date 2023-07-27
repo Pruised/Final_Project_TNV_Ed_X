@@ -35,6 +35,8 @@ $font-family-sans-serif: 'Roboto', sans-serif;
 
 
 // GLOBAL STYLES qui sotto
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 
 label {
   text-transform: uppercase;
@@ -48,4 +50,3 @@ ngb-rating {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-

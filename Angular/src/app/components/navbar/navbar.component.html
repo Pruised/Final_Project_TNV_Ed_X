@@ -1,10 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top shadow">
   <div class="container-fluid">
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- <a class="navbar-brand" routerLink="/">TNV Final Project</a> -->
     <button
-      class="navbar-toggler"
+      class="navbar-toggler icon-button"
       type="button"
       (click)="isNavbarCollapsed = !isNavbarCollapsed"
       aria-controls="navbarTogglerDemo02"
@@ -12,7 +9,7 @@
       aria-label="Toggle navigation"
       color="white"
     >
-      <i class="fas fa-bars"></i>
+      <mat-icon class="icon-menu">menu</mat-icon>
     </button>
     <div
       class="collapse navbar-collapse"
@@ -21,35 +18,31 @@
     >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/welcome" routerLinkActive="active">Regolamento</a>
+          <a class="nav-link" routerLink="/welcome" routerLinkActive="active">
+            <mat-icon class="icon-book-active">book</mat-icon><span>Regolamento</span>
+          </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/gioca" routerLinkActive="active">Gioca</a>
+          <a class="nav-link" routerLink="/gioca" routerLinkActive="active">
+            <mat-icon class="icon-games-active">games</mat-icon><span>Gioca</span>
+          </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/rankings" routerLinkActive="active">Classifica</a>
+          <a class="nav-link" routerLink="/rankings" routerLinkActive="active">
+            <mat-icon class="icon-scoreboard-active">scoreboard</mat-icon><span>Classifica</span>
+          </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/favorites" routerLinkActive="active">Preferiti</a>
+          <a class="nav-link" routerLink="/favourites" routerLinkActive="active">
+            <mat-icon class="icon-favorite-active">favorite</mat-icon><span>Preferiti</span>
+          </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" routerLink="/profile" routerLinkActive="active">Profilo</a>
+          <a class="nav-link" routerLink="/profile" routerLinkActive="active">
+            <mat-icon class="icon-account_circle-active">account_circle</mat-icon><span>Profilo</span>
+          </a>
         </li>
       </ul>
-  <!--     <form class="d-flex input-group w-auto"> //DA FARE SE RIMANE TEMPO
-        <input
-          type="search"
-          class="form-control"
-          placeholder="Search film..."
-          aria-label="Search"
-        />
-        <button
-          class="btn btn-outline-primary"
-          type="button"
-        >
-          Search
-        </button>
-      </form> -->
     </div>
   </div>
 </nav>

@@ -1,0 +1,43 @@
+.arrows:hover {
+    cursor: pointer; 
+    color: #000000e7;
+    transform: scale(1.2);
+}
+  
+.arrows:active {
+    transform: rotate(180deg);
+}
+
+.movie-list {
+    font-family: 'Special Elite', cursive;
+    padding: 20px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.table th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f5930092;
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+h4 {
+    text-align: center;
+}
