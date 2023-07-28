@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-
 .header {
   margin-bottom: 20px;
 }
@@ -9,21 +7,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%; 
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
 }
 
-
 .header-container {
   text-align: center;
-  background-image: url('/assets/images/orange-cinema-seats2.png');
+  background-image: url("/assets/images/orange-cinema-seats2.png");
   background-position: 50% 75%;
   background-size: cover;
-  margin-top:20px;
+  margin-top: 20px;
   margin-left: -1%;
   margin-bottom: 20px;
-  position:relative;
+  position: relative;
   width: 100vw;
   height: 300px;
   display: flex;
@@ -32,35 +29,34 @@
   top: -137px;
 }
 
-h3 {
-  margin-top: 0px;
-  margin-bottom: 300px; 
-  padding-top: 100px;
-  font-size: 25px;
-}
-
-h4 {
-  margin-top: 10px; 
-  font-size: 30px;
-  color: black;
-}
-
-
-.main-header {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-}
-
 .section-header {
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
   text-align: center;
-  margin-bottom: 40px;
-  margin-top: 40px;
-  font-family: "Special Elite";
-  color: lightgrey;
-  font-size: 25px;
-  font-weight: bold;
+  position: relative;
+  top: 240px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgb(255, 185, 20));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  h3 {
+    font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-family: 'Dancing Script', cursive;
+  }
+
+  h4 {
+    font-size:25px;
+    font-weight: 400;
+  
+    .sorted {
+      font-weight: bold;
+    }
+  }
 }
 
 .example-list {
@@ -68,49 +64,47 @@ h4 {
   width: 80%;
   max-width: 500px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   justify-self: center;
   gap: 5px;
   padding: 20px;
   margin-bottom: 40px;
-  background-image: url('/assets/images/orange-background.png');
-  background-size: cover; 
+  background-image: url("/assets/images/orange-background.png");
+  background-size: cover;
   background-repeat: cover;
   background-position: center center;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.512);
-  margin-top:20px;
-  top:40px;
+  margin-top: 20px;
+  top: 40px;
 }
 
 .example-box {
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  text-align: center; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   width: 250px;
   height: 50px;
   margin-top: 5px;
   margin-bottom: 5px;
   border: 1px solid #ccc;
-  border-radius: 15px; 
+  border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.749);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: grab;
-  transition: box-shadow 0.3s ease, transform 0.3s ease; 
-  font-size: 15px; 
-  font-family: "Special Elite";
-  color: #fbfbfb; 
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  font-family: 'Special Elite', cursive;
+  color: #fbfbfb;
 }
-
 
 .example-box:hover {
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
-  transform: scale(1.05); 
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
   background-color: rgb(0, 0, 0);
 }
-
 
 .example-box .cdk-drag-preview {
   transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
@@ -127,20 +121,21 @@ h4 {
 
 .submit-button {
   display: inline-block;
+  font-family: "Sen", sans-serif;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
   user-select: none;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,
-  border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   border-radius: 5px;
-  background: #f7b733; 
-  background: -webkit-linear-gradient(to right, #f7b733, #ff8c00, #f7b733); 
-  background: linear-gradient(to right, #f7b733, #ff8c00, #f7b733);
+  background: #000;
+  background: -webkit-linear-gradient(to right, #000, #4b4b4b, #808080);
+  background: linear-gradient(to right, #000, #4b4b4b, #808080);
   color: #fff;
   border: 1.5px solid #eee;
   cursor: pointer;
@@ -148,5 +143,9 @@ h4 {
 
 .submit-button:hover {
   transform: scale(1.12);
-  transition: transform 0.3s ease-out, background-color 0.3s ease-out, border-color 0.3s ease-out;
+  background: #f7b733;
+  background: -webkit-linear-gradient(to right, #f7b733, #ff8c00, #f7b733);
+  background: linear-gradient(to right, #f7b733, #ff8c00, #f7b733);
+  transition: transform 0.3s ease-out, background-color 0.3s ease-out,
+    border-color 0.3s ease-out;
 }
