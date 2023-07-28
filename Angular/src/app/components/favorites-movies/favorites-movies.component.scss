@@ -1,27 +1,75 @@
-.reviews-list {
-    width: 100%;
-  }
 
-  .reviews-list h4 {
-    text-align: center;
-  }
+.movie-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  font-family: "Special Elite", cursive;
+}
 
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+.movie-list h4 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
 
-  .table th,
-  .table td {
-    padding: 8px;
-    text-align: center;
-    border: 1px solid #ccc;
-    max-width: 200px; /* Modifica la larghezza massima in base alle tue esigenze */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.movie-list ul {
+  list-style: none;
+  padding: 0;
+}
 
-  .table th {
-    background-color: #f2f2f2;
+.movie-list li {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.green-text {
+  color: green;
+  font-weight: bold;
+}
+
+.red-text {
+  color: red;
+  font-weight: bold;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-card {
+  width: calc(20% - 20px); 
+  margin: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+
+@media (max-width: 1200px) {
+  .movie-card {
+    width: calc(25% - 20px);
   }
+}
+
+@media (max-width: 992px) {
+  .movie-card {
+    width: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .movie-card {
+    width: calc(100% - 20px);
+  }
+}

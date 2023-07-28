@@ -15,8 +15,10 @@
       </div>
     </div>
     <p class="overview">{{ movie.overview }}</p>
+
+
     <div *ngIf="!isFavorite">
-      <div *ngIf="!isFormValid " class="alert alert-danger mt-3">
+      <div *ngIf="!isFormValid " class="alert alert-warning mt-3">
         Il commento deve essere inserito e la valutazione deve essere fatta prima di poter aggiungere il film ai
         preferiti.
       </div>
@@ -32,8 +34,20 @@
         </div>
       </div>
     </div>
+
+
     <div *ngIf="isFavorite">
-      <p class="alert alert-info mt-3">>Questo film e' gia' presente nella tua lista dei preferiti</p>
+      <div class="comment-container">
+        <div class="rating-container">
+          <span class="rating-label">Valutato:</span>
+          <ngb-rating [rate]="rating" [max]="5" [readonly]="true"></ngb-rating>
+        </div>
+        <span class="comment">La tua Recensione:</span>
+       
+           "{{ comment }}"
+        
+      </div>
+      <p class="alert alert-secondary mt-3">>Questo film e' gia' presente nella tua lista dei preferiti</p>
     </div>
   </div>
 </div>

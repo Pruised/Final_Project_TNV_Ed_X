@@ -17,13 +17,9 @@ export class GameResultsComponent implements OnInit {
   sortedCriteria = this.dbmoviesService.getSortedCriteria();
   sortedMoviesByUser = this.dbmoviesService.getMoviesByUser();
   sortedMoviesByCalculator = [...this.sortedMoviesByUser];
-  currentUser!: User | undefined; // Initialize as undefined
+  currentUser!: User | undefined;
 
-  constructor(
-    private dbmoviesService: DbmoviesService,
-    private router: Router,
-    private rankService: RankingsService
-  ) {
+  constructor(private dbmoviesService: DbmoviesService,private router: Router,private rankService: RankingsService) {
     
   }
     
@@ -47,13 +43,11 @@ export class GameResultsComponent implements OnInit {
     this.sortMovies(sortedMoviesByCalculator);
 
     for (let i = 0; i < sortedMoviesByCalculator.length; i++) {
-      // Esegue un confronto basato su un identificatore univoco (supponendo che gli oggetti Movie abbiano un ID)
       if (sortedMoviesByCalculator[i].id === sortedMoviesByUser[i].id) {
         count++;
         sortedMoviesByCalculator[i].catch = true;
       }
     }
-
     let gameSessionPoints = count * 10;
     if (this.currentUser) {
       this.addPointsUser(this.currentUser,gameSessionPoints);

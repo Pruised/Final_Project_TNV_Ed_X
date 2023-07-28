@@ -14,8 +14,13 @@ import { DbmoviesService } from 'src/app/services/dbmovieservice.service';
 })
 export class GameResultsItemDetailsComponent implements OnInit {
   movieId!: number;
-  movie: Movie ={
-    adult: false,
+  isFormValid: boolean = false;
+  comment: string = '';
+  rating: number = 0;
+  isFavorite: boolean = false;
+  currentUser!: User;
+  movie: Partial<Movie> = {};
+    /*adult: false,
     backdrop_path: '',
     genre_ids: [],
     id: 0,
@@ -30,11 +35,7 @@ export class GameResultsItemDetailsComponent implements OnInit {
     vote_average: 0,
     vote_count: 0,
     catch: false
-  };
-  comment: string='';
-  rating: number = 0;
-  isFavorite: boolean = false;
-  currentUser!: User; 
+  };*/
   review: Rating = {  // Inizializzazione dell'oggetto review
     idRating: 0,
     userId: 0,
@@ -42,18 +43,18 @@ export class GameResultsItemDetailsComponent implements OnInit {
     ratingStars: 0,
     textComment: ''
   };
-  
 
-  constructor(private activatedRoute: ActivatedRoute, private dbmoviesService: DbmoviesService, 
-    private ratingService: RatingService,private httpClient:HttpClient,private  router: Router) {
-    this.currentUser= JSON.parse(localStorage.getItem("user") || '') as User;
+
+  constructor(private activatedRoute: ActivatedRoute, private dbmoviesService: DbmoviesService,
+    private ratingService: RatingService, private httpClient: HttpClient, private router: Router) {
+    this.currentUser = JSON.parse(localStorage.getItem("user") || '') as User;
     this.movieId = this.activatedRoute.snapshot.params['id'];
   }
 
   ngOnInit(): void {
-  this.getMovie();
-  this.isAlreadyFavourite();
-}
+    this.getMovie();
+    this.isAlreadyFavourite();
+  }
 
   getMovie() {
     this.dbmoviesService.getMovie(this.movieId).subscribe({
@@ -78,47 +79,47 @@ export class GameResultsItemDetailsComponent implements OnInit {
     this.checkFormValidity();
   }
 
-  isFormValid: boolean = false;
+  
 
 
   checkFormValidity() {
     // Controllo se il commento è presente e la valutazione è stata fatta
     this.isFormValid = !!this.comment && !!this.rating;
-}
+  }
 
 
-isAlreadyFavourite() {
-  this.ratingService.getRating(this.currentUser.id, this.movieId).subscribe({
-    next: (res: Rating) => {
-      this.review = res;
-      this.isFavorite = true; // Film trovato nei preferiti
-      console.log('recensione trovata:', this.review);
-    },
-    error: (error: 404) => {
-      console.log('recensione non trovata o problemi col server', error);
-    }
-  });
-}
-
+  isAlreadyFavourite() {
+    this.ratingService.getRating(this.currentUser.id, this.movieId).subscribe({
+      next: (res: Rating) => {
+        this.review = res;
+        this.isFavorite = true; // Film trovato nei preferiti
+        console.log('recensione trovata:', this.review);
+        this.comment=this.review.textComment;
+        this.rating=this.review.ratingStars;
+      },
+      error: (error: 404) => {
+        console.log('recensione non trovata o problemi col server', error);
+      }
+    });
+  }
+  
   addToFavorites() {
-  this.review.movieId = this.movieId;
-  this.review.userId = this.currentUser.id;
-  this.review.textComment = this.comment;
-  this.review.ratingStars = this.rating;
+    this.review.movieId = this.movieId;
+    this.review.userId = this.currentUser.id;
+    this.review.textComment = this.comment;
+    this.review.ratingStars = this.rating;
 
-  this.ratingService.addRating(this.review).subscribe({
-    next: (res: Rating) => {
-      this.review = res;
-      this.router.navigateByUrl("/result");
-
-      
-      setTimeout(() => {
-        alert("Film aggiunto alla lista dei preferiti");
-      }, 50);
-    },
-    error: (error: any) => {
-      console.error('Si è verificato un errore nel salvataggio:', error);
-    }
-  });
-}
+    this.ratingService.addRating(this.review).subscribe({
+      next: (res: Rating) => {
+        this.review = res;
+        this.router.navigateByUrl("/result");
+        setTimeout(() => {
+          alert("Film aggiunto alla lista dei preferiti");
+        }, 50);
+      },
+      error: (error: any) => {
+        console.error('Si è verificato un errore nel salvataggio:', error);
+      }
+    });
+  }
 }

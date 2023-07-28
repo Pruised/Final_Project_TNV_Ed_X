@@ -26,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { GameResultsItemComponent } from './components/game-results-item/game-results-item.component';
 import { GameResultsItemDetailsComponent } from './components/game-results-item-details/game-results-item-details.component';
 import { FavoritesMoviesComponent } from './components/favorites-movies/favorites-movies.component';
+import { FavoritesMoviesItemComponent } from './components/favorites-movies-item/favorites-movies-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { FavoritesMoviesComponent } from './components/favorites-movies/favorite
     GameResultsItemComponent,
     GameResultsItemDetailsComponent,
     FavoritesMoviesComponent,
+    FavoritesMoviesItemComponent,
   ],
   imports: [
     BrowserModule,

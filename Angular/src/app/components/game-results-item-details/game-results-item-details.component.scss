@@ -44,6 +44,10 @@
   margin-bottom: 4px;
 }
 
+.comment{
+ color: #ff8c00;
+}
+
 .comment-container {
   position: absolute;
   top: 271px;
@@ -65,16 +69,12 @@
 }
 
 .comment-btn {
-  background-color: #007bff;
+  background-color: #ff8c00;
   color: #fff;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
-}
-
-.comment-btn:hover {
-  background-color: #0056b3;
 }
 
 .info-container {
@@ -89,7 +89,7 @@
 .rating-container {
   display: flex;
   align-items: center;
-  color: #f1c40f; 
+  color: #ff8c00; 
   margin-bottom: 8px;
 }
 
@@ -112,4 +112,13 @@
 .disabled-btn {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-label {
+  margin-right: 10px;
 }

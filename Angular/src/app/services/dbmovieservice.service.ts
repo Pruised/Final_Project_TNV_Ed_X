@@ -19,39 +19,6 @@ export class DbmoviesService {
     this.loadFromLocalStorage();
   }
 
-  loadFromLocalStorage() {
-    const storedMovies = localStorage.getItem('moviesSortedByUser');
-    if (storedMovies) {
-      this.moviesSortedByUser = JSON.parse(storedMovies);
-    }
-
-    const storedCriteria = localStorage.getItem('sortedCriteria');
-    if (storedCriteria) {
-      this.sortedCriteria = storedCriteria;
-    }
-  }
-  saveToLocalStorage() {
-    localStorage.setItem('moviesSortedByUser', JSON.stringify(this.moviesSortedByUser));
-    localStorage.setItem('sortedCriteria', this.sortedCriteria);
-  }
-
-  setMoviesByUser(movies: Movie[]) {
-    this.moviesSortedByUser = movies;
-    this.saveToLocalStorage(); 
-  }
-  getMoviesByUser() {
-    return this.moviesSortedByUser;
-    
-  }
-
-  setSortedCriteria(criteria: string) {
-    this.sortedCriteria = criteria;
-    this.saveToLocalStorage();
-  }
-  getSortedCriteria(){
-    return this.sortedCriteria;
-  }
-
   getMovies(): Observable<Movie[]> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.accessToken}`);
     return this.http.get<Movie[]>(this.movieListUrl, { headers });
@@ -60,5 +27,32 @@ export class DbmoviesService {
   getMovie(id: number): Observable<Movie> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.accessToken}`);
     return this.http.get<Movie>(`${this.movieUrl}/${id}`, { headers });
+  }
+
+  loadFromLocalStorage() {
+    const storedMovies = localStorage.getItem('moviesSortedByUser');
+    if (storedMovies) {
+      this.moviesSortedByUser = JSON.parse(storedMovies);
+    }
+    const storedCriteria = localStorage.getItem('sortedCriteria');
+    if (storedCriteria) {
+      this.sortedCriteria = storedCriteria;
+    }
+  }
+ 
+  setMoviesByUser(movies: Movie[]) {
+    this.moviesSortedByUser = movies;
+    localStorage.setItem('moviesSortedByUser', JSON.stringify(this.moviesSortedByUser));
+  }
+  getMoviesByUser() {
+    return this.moviesSortedByUser; 
+  }
+
+  setSortedCriteria(criteria: string) {
+    this.sortedCriteria = criteria;
+    localStorage.setItem('sortedCriteria', this.sortedCriteria);
+  }
+  getSortedCriteria(){
+    return this.sortedCriteria;
   }
 }
