@@ -1,71 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-h1, h2, h3, h4 {
-    font-family: 'Bebas Neue', cursive;
-}
-
 header {
-    width: 100%;
-    background-image: url('/assets/images/hero-film.gif');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: 0 3px 5px lightgray;
-    padding: 50px 0;
-}
+  width: 100%;
+  background-image: url("/assets/images/hero-film.gif");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 3px 5px lightgray;
+  padding: 50px 0;
 
-header img {
+  img {
     max-width: 100%;
     height: auto;
     object-fit: contain;
-}
+  }
 
-header h1 {
+  h1 {
     color: white;
-    font-size: 6vw; 
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 7vw;
     margin: 0;
     text-shadow: 2px 2px 4px black;
-}
+  }
 
-header p {
+  p {
     color: white;
-    font-family: 'Pacifico', cursive;
-    font-size: 2.3rem;
+    font-family: "Comfortaa", cursive;
+    font-size: 5vw;
     margin: 0;
     text-shadow: 2px 2px 4px black;
-    font-size: 2.5vw; 
-}
+    font-size: 2.5vw;
+  }
 
-.container {
+  .container {
     max-width: 900px;
     margin: 0 auto;
     margin-top: 64px;
-}
+  }
 
-.container section {
+  .container section {
     margin-top: 64px;
     margin-bottom: 32px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-    header h1 {
-        font-size: 12vw; 
+  header {
+    h1 {
+      font-size: 12vw;
     }
 
-    header p {
-        font-size: 7vw;
-        text-align: center;
+    p {
+      font-size: 7vw;
+      text-align: center;
     }
+  }
 }
