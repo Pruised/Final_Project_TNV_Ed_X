@@ -29,7 +29,7 @@ $tnv-project-template-theme: mat.define-light-theme((
 // ---
 $primary: map-get($primary-palette, 700);
 $secondary: map-get($secondary-palette, 300);
-$font-family-sans-serif: 'Roboto', sans-serif;
+$font-family-sans-serif: 'Sen', sans-serif;
 
 @import "bootstrap/scss/bootstrap";
 
