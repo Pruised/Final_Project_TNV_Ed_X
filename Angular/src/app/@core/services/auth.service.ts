@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { of } from "rxjs";
-import { LoginDTO, RegisterDTO, User } from "src/app/models/user";
+import { LoginDTO, RegisterDTO, User, UserUpdate } from "src/app/models/user";
 
 @Injectable({
   providedIn: "root",
@@ -42,5 +42,10 @@ export class AuthService {
   getCurrentUser() {
     const user = JSON.parse(localStorage.getItem("user") || '') as User;
     return user;
+  }
+
+  updateProfile(updatedUser: UserUpdate) {
+    const userId = this.getCurrentUser().id;
+    return this.http.put<User>(`${this.springBootUrl}/${userId}`, updatedUser);
   }
 }

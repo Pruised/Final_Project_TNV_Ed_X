@@ -1,6 +1,7 @@
 package com.thenetvalue.raccoltaUtenti.service;
 
 import com.thenetvalue.raccoltaUtenti.dao.UserRepositoryDAO;
+import com.thenetvalue.raccoltaUtenti.model.UpdateUser;
 import com.thenetvalue.raccoltaUtenti.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -94,6 +95,30 @@ public class UserService {
         }
         else return null;
     }
+
+    public User updatePasswordAndEmail(int id, UpdateUser updateUser) {
+        User user = userDAO.findById(id).orElse(null);
+        if (user != null) {
+            String newPassword = user.getPassword();
+            if (newPassword != null) {
+                String hashedPassword = passwordEncoder.encode(newPassword);
+                updateUser.setPassword(hashedPassword);
+            }
+
+            String newEmail = user.getEmail();
+            if (newEmail != null) {
+                updateUser.setEmail(newEmail);
+            }
+
+            userDAO.save(updateUser);
+            return updateUser;
+        } else {
+            return null;
+        }
+    }
+
+
+
 }
 
 
