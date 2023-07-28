@@ -1,43 +1,48 @@
 .arrows:hover {
-    cursor: pointer; 
+    cursor: pointer;
     color: #000000e7;
     transform: scale(1.2);
-}
+  }
   
-.arrows:active {
+  .arrows:active {
     transform: rotate(180deg);
-}
-
-.movie-list {
-    font-family: 'Special Elite', cursive;
+  }
+  
+  .movie-list {
+    font-family: 'Sen', sans-serif;
     padding: 20px;
     line-height: 1.5;
     color: #333;
-}
-
-.table {
+  }
+  
+  .table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 15px;
     overflow: hidden;
     margin: 0 auto;
-}
-
-.table th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-.table th {
-    background-color: #f5930092;
-    color: white;
-}
-
-.table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-h4 {
+  
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+  
+    th {
+      background-color: #f5930092;
+      color: white;
+    }
+  
+    td {
+      transition: background-color 0.3s ease;
+    }
+  
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  }
+  
+  h4 {
     text-align: center;
-}
+  }
+  
