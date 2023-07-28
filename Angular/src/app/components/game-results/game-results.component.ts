@@ -30,7 +30,7 @@ export class GameResultsComponent implements OnInit {
   }
 
   sortMovies(movies: Movie[]) { 
-    if (this.sortedCriteria === "Data d'uscita") {
+    if (this.sortedCriteria === "data d'uscita") {
       movies.sort((a, b) => new Date(b.release_date).getTime() - new Date(a.release_date).getTime());
     } else if (this.sortedCriteria === "popolarità") {
       movies.sort((a, b) => b.popularity - a.popularity);
