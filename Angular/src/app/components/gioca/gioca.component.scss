@@ -73,7 +73,7 @@ h4 {
   justify-self: center;
   gap: 5px;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   background-image: url('/assets/images/orange-background.png');
   background-size: cover; 
   background-repeat: cover;
@@ -128,7 +128,6 @@ h4 {
 .submit-button {
   display: inline-block;
   font-weight: 400;
-  color: #ffffff; //Non riesco a cambiare il colore
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -136,10 +135,9 @@ h4 {
   padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: .25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,
   border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  border-radius: 35px;
+  border-radius: 5px;
   background: #f7b733; 
   background: -webkit-linear-gradient(to right, #f7b733, #ff8c00, #f7b733); 
   background: linear-gradient(to right, #f7b733, #ff8c00, #f7b733);
