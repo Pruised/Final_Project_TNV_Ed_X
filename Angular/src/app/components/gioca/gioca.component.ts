@@ -18,7 +18,7 @@ export class GiocaComponent implements OnInit {
 
 
   movies!: Movie[] ;
-  criteria:String[]=["popolarità","Data d'uscita"]; 
+  criteria:String[]=["popolarità","data d'uscita"]; 
   sortedCriteria =this.shuffleArray(this.criteria)[0];
   isSubmitPressed: boolean = false;
 

@@ -1,18 +1,17 @@
-
 <div class="movie-list">
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
   <h4>Ecco la lista dei film ordinati per {{ sortedCriteria }}:</h4>
   <ul class="order-list">
     <li *ngFor="let movie of sortedMoviesByCalculator" class="movie-item">
-      <div *ngIf="movie.catch" class="movie-title">
-        {{ movie?.title }} <span class="green-text">*INDOVINATO*</span>
+      <div *ngIf="movie.catch" class="movie-title correct">
+        {{ movie?.title }} <mat-icon class="orange-text">check_circle</mat-icon>
       </div>
-      <div *ngIf="!movie.catch" class="movie-title">
-        {{ movie?.title }} <span class="red-text">*SBAGLIATO*</span>
-      </div>
+      <div *ngIf="!movie.catch" class="movie-title incorrect">
+        {{ movie?.title }} <mat-icon class="black-text">cancel</mat-icon>
+      </div>      
     </li>
   </ul>
 </div>
+
      
 <div class="movie-list">
  <h4>Questa è la lista ordinata:</h4>

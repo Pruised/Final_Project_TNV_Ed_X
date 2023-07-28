@@ -5,7 +5,7 @@
         <div class="main-header"></div>
         <div class="section-header">
           <h3>Inizia lo spettacolo!</h3>
-          <h4>Ordina per {{ sortedCriteria }}</h4>
+          <h4>Ordina per <span class="sorted">{{ sortedCriteria }}</span></h4>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
   </div>
   
   <div class="page-button">
-    <button class="submit-button" mat-raised-button (click)="checkMoviesByUser()">Conferma</button>
+    <button class="submit-button"(click)="checkMoviesByUser()">Conferma</button>
 </div>
 
   <div *ngIf="isSubmitPressed"><tnv-game-results></tnv-game-results></div>
