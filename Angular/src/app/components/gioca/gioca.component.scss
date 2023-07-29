@@ -149,3 +149,20 @@
   transition: transform 0.3s ease-out, background-color 0.3s ease-out,
     border-color 0.3s ease-out;
 }
+
+@media screen and (max-width: 600px) {
+  .header-container {
+    height: 200px;
+  }
+
+  .section-header {
+    max-width: 300px;
+    top: 180px;
+  }
+
+  .example-list {
+    width: 90%;
+    top: 20px;
+  }
+
+}

@@ -3,10 +3,18 @@
   <ul class="order-list">
     <li *ngFor="let movie of sortedMoviesByCalculator" class="movie-item">
       <div *ngIf="movie.catch" class="movie-title correct">
-        {{ movie?.title }} <mat-icon class="orange-text">check_circle</mat-icon>
+        {{ movie?.title }} 
+        <span class="icon-and-text">
+          <mat-icon class="orange-text">check_circle</mat-icon>
+          <span class="icon-text">Indovinato</span>
+        </span>
       </div>
       <div *ngIf="!movie.catch" class="movie-title incorrect">
-        {{ movie?.title }} <mat-icon class="black-text">cancel</mat-icon>
+        {{ movie?.title }}
+        <span class="icon-and-text">
+          <mat-icon class="black-text">cancel</mat-icon>
+          <span class="icon-text">Sbagliato</span>
+        </span>
       </div>      
     </li>
   </ul>
@@ -14,8 +22,7 @@
 
      
 <div class="movie-list">
- <h4>Questa è la lista ordinata:</h4>
- <h5>Puoi aggiungere ai preferiti, dare un voto e lasciare un commento</h5>
+ <h4>Premi su una locandina per aggiungere il film ai preferiti, dare un voto e lasciare un commento.</h4>
  </div>
 
 <div class="movie-container">

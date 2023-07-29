@@ -54,4 +54,12 @@ export class RankingsComponent implements OnInit {
       return (this.sortAsc ? 1 : -1) * (Number(a.points) - Number(b.points));
     });
   }  
+
+  getScoreColor(points: number) {
+    let maxPoints = Math.max(...(this.users?.map(user => user.points) || [0]));
+    let normalizedPoints = points / maxPoints;
+    let lightness = 85 + 15 * (1 - Math.pow(normalizedPoints, 0.5)); 
+    return 'hsl(30, 50%, ' + lightness + '%)';
+  }
+  
 }  
