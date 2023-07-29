@@ -27,6 +27,7 @@ import { GameResultsItemComponent } from './components/game-results-item/game-re
 import { GameResultsItemDetailsComponent } from './components/game-results-item-details/game-results-item-details.component';
 import { FavoritesMoviesComponent } from './components/favorites-movies/favorites-movies.component';
 import { FavoritesMoviesItemComponent } from './components/favorites-movies-item/favorites-movies-item.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { FavoritesMoviesItemComponent } from './components/favorites-movies-item
     GameResultsItemDetailsComponent,
     FavoritesMoviesComponent,
     FavoritesMoviesItemComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,

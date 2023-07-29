@@ -1,10 +1,10 @@
 package com.thenetvalue.raccoltaUtenti.controller;
 
+import com.thenetvalue.raccoltaUtenti.model.UpdateUser;
 import com.thenetvalue.raccoltaUtenti.model.User;
 import com.thenetvalue.raccoltaUtenti.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -59,16 +59,19 @@ public class UserController {
         return userService.allUsers();
     }
 
-
-    //@CrossOrigin(origins = "http://localhost:4200/")
-    ////@PutMapping("/{id}")
-    //public User updateUser(@PathVariable("id") int id, @RequestBody User user) {
-    //    return userService.updateUser(id, user);
-   // }
-
     @DeleteMapping("users/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         return userService.deleteUser(id);
     }
 
+    @PutMapping("/{id}")
+    public String updatePasswordAndEmail(@PathVariable("id") int id, @RequestBody UpdateUser updateUser) {
+        User updatedUser = userService.updatePasswordAndEmail(id, updateUser);
+
+        if (updatedUser != null) {
+            return "Password e Mail aggiornate correttamente";
+        } else {
+            return "User non trovato";
+        }
+    }
 }

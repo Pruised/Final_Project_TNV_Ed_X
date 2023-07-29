@@ -21,3 +21,7 @@ export interface RegisterDTO {
   password: string;
   email: string;
 }
+export interface UserUpdate {
+  email: string;
+  password: string;
+}
